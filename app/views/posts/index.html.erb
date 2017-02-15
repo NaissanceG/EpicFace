@@ -1,6 +1,6 @@
 <h1>EpicFace</h1>
 
 <% @posts.each do |post| %>
-<p> <%= image_tag(post.image) %></p>
+<p> <%= image_tag post.image.url(:medium) %></p>
 <p> <%=post.caption %></p>
 <% end  %>
