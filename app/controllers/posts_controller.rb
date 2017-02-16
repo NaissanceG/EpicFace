@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice] = "Your post is added!"
+      flash[:success] = "Your post is added!"
       redirect_to posts_path
     else
       flash[:alert] = "Oops, something went wrong. Please try again."
@@ -28,9 +28,8 @@ class PostsController < ApplicationController
   end
 
   def update
-
     if @post.update(post_params)
-      flash[:notice] = "Post updated."
+      flash[:success] = "Post updated."
       redirect_to post_path(@post)
     else
       flash[:alert] = "Update failed. Please try again."
