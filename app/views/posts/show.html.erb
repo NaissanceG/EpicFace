@@ -1,5 +1,5 @@
 <%= render 'post', post: @post %>
-<% if @post.user.id == current_user.id %>
+<% if @post.user.id == current_user.id or current_user.admin == true %>
   <div class="text-center edit-links">
     <%= link_to "Cancel", posts_path %> |
     <%= link_to "Edit Post", edit_post_path(@post) %> |
