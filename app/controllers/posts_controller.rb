@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :admin_post, only: [:new, :create, :edit, :update, :destroy]
+  # before_action :admin_post, only: [:new, :create, :edit, :update, :destroy]
   before_action :owned_post, only: [:edit, :update, :destroy]
 
   def index
@@ -57,12 +57,12 @@ private
     @post = Post.find(params[:id])
   end
 
-  def admin_post
-    unless current_user.admin == true
-      flash[:alert] = "You are not an admin."
-      redirect_to root_path
-    end
-  end
+  # def admin_post
+  #   unless current_user.admin == true
+  #     flash[:alert] = "You are not an admin."
+  #     redirect_to root_path
+  #   end
+  # end
 
   def owned_post
     unless current_user == @post.user
